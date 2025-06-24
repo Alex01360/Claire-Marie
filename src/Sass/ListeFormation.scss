@@ -1,0 +1,80 @@
+.Container-ListeFormation-1 {
+    background-color: var(--card-background);
+    display: grid;
+    justify-content: center;
+    grid-template-columns: (repeat(4, 1fr));
+    width: 95%;
+    padding: 20px;
+    gap: 20px;
+    border-radius: var(--border-radius);
+}
+
+.Rubriques-ListeFormation {
+    background-color: rgba(0, 0, 255, 0.397);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border-radius: var(--border-radius);
+
+    p {
+        text-align: left;
+        width: 100%;
+    }
+
+    // Flèche gauche SVG entre les éléments (sauf le premier)
+    &:not(:first-child)::before {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15,18 9,12 15,6'%3E%3C/polyline%3E%3C/svg%3E");
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    .Container-ListeFormation-1 {
+        grid-template-columns: repeat(1, 1fr);
+
+        h1 {
+            font-size: var(--font-size-titre);
+        }
+
+        p {
+            font-size: var(--font-size-texte);
+        }
+    }
+
+    .Rubriques-ListeFormation {
+    background-color: rgba(0, 0, 255, 0.397);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border-radius: var(--border-radius);
+
+    p {
+        text-align: left;
+        width: 100%;
+    }
+
+     // Flèche vers le haut SVG entre les éléments (sauf le premier)
+    &:not(:first-child)::before {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,15 12,9 18,15'%3E%3C/polyline%3E%3C/svg%3E");
+        position: absolute;
+        left: 50%;
+        top: -8px;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 20px;
+    }
+}
+}

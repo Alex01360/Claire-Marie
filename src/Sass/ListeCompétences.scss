@@ -1,0 +1,122 @@
+.Container-ListeCompétences-1 {
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 20px;
+    gap: 20px;
+    border-radius: var(--border-radius);
+
+
+    .Rubriques-Compétences {
+        background-color: rgba(0, 0, 255, 0.397);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        width: 70%;
+    border-radius: var(--border-radius);
+        padding: 20px 0;
+
+        h1 {
+            width: 100%;
+            font-size: 26px;
+
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;
+                vertical-align: middle;
+                margin-left: 8px;
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .Liste-Compétences {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 0.1s * $i;
+                }
+            }
+
+            span {
+                display: flex;
+                justify-content: center;
+                border-radius: 20px;
+                padding: 5px;
+                background-color: var(--primary-color);
+                width: 10%;
+            }
+
+            li {
+                text-align: left;
+                list-style: none;
+                padding: 10px 0;
+                width: 100%;
+
+                // Animation progressive pour chaque élément li sans répétition
+
+            }
+        }
+    }
+
+    // Animation keyframes pour l'apparition progressive
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .Container-ListeCompétences-1 {
+        width: 90%;
+        padding: 20px 0;
+
+        .Rubriques-Compétences {
+            width: 95%;
+            h1 {
+                font-size: var(--font-size-titre);
+            }
+
+            .Liste-Compétences {
+                width: 100%;
+
+                span {
+                    width: 15%;
+                }
+
+                li {
+                    font-size: var(--font-size-texte);
+                }
+            }
+        }
+    }
+}

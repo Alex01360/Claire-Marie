@@ -1,0 +1,100 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --primary-color: rgb(37, 99, 235);
+  --primary-dark: rgb(29, 78, 216);
+  --secondary-color: rgb(100, 116, 139);
+  --accent-color: rgb(245, 158, 11);
+--background-gradient: rgb(73, 73, 194);
+  --card-background: rgba(117, 110, 110, 0.95);
+  --text-primary: rgb(30, 41, 59);
+  --text-secondary: rgb(100, 116, 139);
+  --text-light: rgb(255, 255, 255);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --border-radius: 20px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-size-titre:clamp(19px, 3.5vw, 30px);
+  --font-size-sous-titre:clamp(17px, 3.5vw, 27px);
+  --font-size-texte:clamp(14px, 3.5vw, 24px);
+}
+
+body {
+  background-color: var(--background-gradient);
+font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin:auto;
+    top: 100px; /* Espace pour la barre de navigation fixe */
+  }
+  
+@media (max-width: 900px) {
+    body {
+        top: calc(17vh + 30px); 
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        top: calc(40vh + 25px); 
+    }
+}
+
+/* Pas d'espace pour la barre de navigation sur mobile */
+
+  h1 {
+    text-align: center;
+    font-size: var(--font-size-titre);
+    margin: 10px 0;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: var(--font-size-sous-titre);
+    margin: 10px 0;
+  }
+  
+  li {
+    font-size: var(--font-size-texte);
+  }
+
+  p {
+    text-align: justify;
+    font-size: var(--font-size-texte);
+    margin: 10px 0;
+  }
+
+  hr {
+    margin: 10px;
+  }
+  
+  a {
+    color: white;
+  }
+  
+  section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  }
+  
+  button{
+  border: solid 2px white;
+  }
+
