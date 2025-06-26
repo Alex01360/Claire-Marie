@@ -38,21 +38,8 @@ font-family: Arial, Helvetica, sans-serif;
     color: white;
     width: 100%;
     margin:auto;
-    top: 100px; /* Espace pour la barre de navigation fixe */
   }
   
-@media (max-width: 900px) {
-    body {
-        top: calc(17vh + 30px); 
-    }
-}
-
-@media (max-width: 360px) {
-    body {
-        top: calc(40vh + 25px); 
-    }
-}
-
 /* Pas d'espace pour la barre de navigation sur mobile */
 
   h1 {

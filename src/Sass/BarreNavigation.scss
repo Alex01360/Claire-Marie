@@ -1,12 +1,101 @@
 .Container-BarreNavigation-1 {
-  background-color: gray;
+  background: linear-gradient(135deg, var(--card-background) 0%, rgba(255, 255, 255, 0.05) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 95%;
+  /*
+  padding: 20px;
+  */
+  gap: 20px;
+  border-radius: 20px 20px 0 0;
+}
+
+.Prénom-Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  width: 30%;
+
+  img {
+    border-radius: 50px;
+    border: solid 5px var(--primary-color);
+    box-shadow: var(--shadow-sm);
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  }
+}
+
+.Container-BarreNavigation-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 75%;
+}
+
+.Container-BarreNavigation-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+
+  img {
+    width: 6%;
+  }
+}
+
+.Container-BarreNavigation-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    gap: 20px;
+
+  width: 90%;
+}
+
+.Information {
+    background-color: rgba(0, 0, 0, 0.274);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  padding:0 20px;
+  width: 100%;
+  gap: 20px;
+}
+
+.Container-BarreNavigation-5 {
+  background: linear-gradient(135deg, var(--card-background) 0%, rgba(137, 166, 204, 0.39) 100%);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: fixed;
-  top: 0;
+  border-top: solid 10px blue;
     padding: 20px;
-  width: 100%;
+  width: 95%;
+  border-radius:0 0 20px 20px;
+
+.Icone-Titre-Navigation{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 20px;
+width: 100%;
+}
+
+span{
+font-size: 30px;
+}
+
 
   a {
     text-decoration: none;
@@ -17,7 +106,7 @@
       transform: translateY(-2px);
     }
   }
-
+  
     .nav-link-active {
       border-radius: var(--border-radius);
       padding: 10px 20px;
@@ -31,8 +120,32 @@
     }
 }
 
-@media screen and (max-width: 900px) {
-  .Container-BarreNavigation-1 {
+.sticky-nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  background-color: white; /* Ajustez selon votre design */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel : ombre pour l'effet de profondeur */
+  transition: all 0.3s ease; /* Transition fluide */
+  width: 95%;
+  border: none;
+  z-index: 1;
+}
+
+
+@media screen and (max-width: 1360px) {
+  .Container-BarreNavigation-4{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .Container-BarreNavigation-5 {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -41,10 +154,44 @@ grid-template-columns: repeat(2, 1fr);
     font-size: var(--font-size-titre);
     }
   }
+
+  .Container-BarreNavigation-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+.Container-BarreNavigation-3{
+  width: 95%;
+
+  h1{
+    font-size: var(--font-size-titre);
+  }
+
+  h2{
+    font-size: var(--font-size-sous-titre);
+  }
+}
+
+    .Information {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      p {
+        font-size: var(--font-size-texte);
+      }
+
+      img {
+        width: clamp(15px, 3.5vw, 24px);
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 360px) {
-  .Container-BarreNavigation-1 {
+  .Container-BarreNavigation-5 {
 display: grid;
 grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -54,3 +201,4 @@ grid-template-columns: repeat(1, 1fr);
     }
   }
 }
+

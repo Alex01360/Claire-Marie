@@ -11,10 +11,13 @@
 }
 
 .Container-Intérêt-2 {
+    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: var(--border-radius);
+    padding: 20px 0;
     width: 100%;
 }
 
@@ -42,6 +45,13 @@
     h1{
       font-size:var(--font-size-titre);
     }
+}
+
+.Container-Intérêt-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+width: 95%;
 }
 
 .Intérêts {

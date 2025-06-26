@@ -6,9 +6,10 @@ import Formation from "../Pages/Formation";
 import Expériences from "../Pages/Expériences";
 
 const App = () => {
+  const basename=import.meta.env.MODE === "production" ?  '/Claire-Marie/' : '/';
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Header /> 
         <Routes>
           <Route path="/" element={<Accueil />} />

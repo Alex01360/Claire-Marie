@@ -1,56 +1,46 @@
-import ClaireMarie from "../assets/images/Claire-Marie.jpeg";
-import iconelocalisation from "../assets/images/icone-localisation.svg";
-import iconemail from "../assets/images/icone-mail.svg";
-import iconetéléphone from "../assets/images/icone-téléphone.svg";
 import Intérêt from "../Composants/Intérêt";
 import Présentation from "../Composants/Présentation";
-
 const Accueil = () => {
   return (
     <>
       <Présentation
-        props={{
-          Container:
-            [
-              {
-                Présentation:
-                  [
-                    {
-                      image: ClaireMarie,
-                    },
-                  ],
+  props={
+    {
+    Container: 
+    [
+      {
+        Intro: 
+        [
+          {
+            texte: "Mon objectif est d'accéder à un contrat d'apprentissage pour poursuivre la formation d'auxiliaire spécialisée vétérinaire au GIPSA au centre de Bourg-En-Bresse. J'ai fait du Pet-sitter et Baby-sitter."
+          }
+        ],
 
-                titre: "BASSON Claire Marie",
-                texte: "Apprentie ASV (Auxiliaire Vétérinaire)",
+        Catégories: 
+        [
+          {
+            icone:"🐾",
+            titre: "Passion pour les animaux",
+            texte: "Je suis une personne motivée et autonome. J'aime apprendre et me perfectionner dans mes connaissances."
+          },
 
-                Icone:
-                  [
-                    iconetéléphone,
-                    iconemail,
-                    iconelocalisation,
-                  ],
+          {
+                        icone:"📚",
+            titre: "Formation continue",
+            texte: "Actuellement en formation d'auxiliaire vétérinaire au CFPPA des Sardières"
+          },
 
-                Information:
-                  [
-                    "06 31 39 93 29",
-                    "basson.clairemarie2016@gmail.com",
-                    "Jarcieu 38270 France",
-                  ],
+          {
+                        icone:"💼",
+            titre: "Expérience pratique",
+            texte: "Stages dans plusieurs cliniques vétérinaires pour une formation complète"
+          }
+        ]
+      }
+    ]
+  }}
+/>
 
-                Profil:
-                  [
-                    {
-                      texte:
-                        [
-                          "Je suis une personne autonome et curieuse. J'ai toujours été passionnée par les animaux et j'aime apprendre de nouvelles choses.",
-                          "J'ai fait du Pet-sitter et Baby-sitter.",
-                          "Mon objectif est d'accéder à un contrat d'apprentissage pour poursuivre la formation d'auxiliaire spécialisée vétérinaire au GIPSA au centre de Bourg-En-Bresse."
-                        ]
-                    }
-                  ]
-              }
-            ]
-        }} />
 
       <Intérêt
         props=
@@ -83,7 +73,7 @@ const Accueil = () => {
                           ]
                       },
 
-                         {
+                      {
                         Intro:
                           [
                             {
@@ -106,7 +96,7 @@ const Accueil = () => {
                           ]
                       },
 
-                         {
+                      {
                         Intro:
                           [
                             {

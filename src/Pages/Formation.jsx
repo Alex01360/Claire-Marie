@@ -1,4 +1,3 @@
-import ListeExpériences from "../Composants/ListeExpériences"
 import ListeFormation from "../Composants/ListeFormation"
 
 const Formation = () => {
