@@ -8,8 +8,9 @@ const ListeCompétences = ({ props }) => {
   };
 
   return (
-    <section>
-      <div className='Container-ListeCompétences-1'>
+      <div className='Container-Compétences-1'>
+       <h1>Mes Compétences</h1>
+       
         {props.Container.map((item, idx) => (
           <div className="Rubriques-Compétences" key={item.titre}>
             <h1 style={{ cursor: "pointer" }} onClick={() => handleClick(idx)}>
@@ -32,7 +33,6 @@ const ListeCompétences = ({ props }) => {
           </div>
         ))}
       </div>
-    </section>
   );
 };
 

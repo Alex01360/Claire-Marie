@@ -1,71 +1,93 @@
-import { NavLink } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 const BarreNavigation = ({ props }) => {
-  const [isSticky, setIsSticky] = useState(false);
+  const [activeSection, setActiveSection] = useState("presentation");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Définir sections sans useMemo
+  const sections = [
+    "presentation",
+    "competences",
+    "formation",
+    "experiences",
+    "profil",
+    "contact"
+  ];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navBarHeight = window.innerWidth >= 950 ? -20 : 15;
+      const elementPosition = element.offsetTop - navBarHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+      setMenuOpen(false); // Ferme le menu après clic
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsSticky(scrollPosition > 300);
+      const scrollPosition = window.scrollY + 150;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, );
+
   return (
     <section>
-      {props.Container.map((item) => (
-        <>
-          <div className="Container-BarreNavigation-1">
-            <div className="Container-BarreNavigation-2">
-              {item.Présentation.map((item, index) => (
-                <div key={index} className="Prénom-Image">
-                  <img src={item.image} width="150px" />
-                </div>
-              ))}
+      {props.Container.map((item, containerIndex) => (
+        <div key={containerIndex} className="Container-BarreNavigation-1">
 
-              <div className="Container-BarreNavigation-3">
-                <h1>{item.titre}</h1>
-                <h2>{item.sousTitre}</h2>
-                <p>{item.texte}</p>
-              </div>
-            </div>
-
-            <div className="Container-BarreNavigation-4">
-              {item.Icone.map((icone, index) => (
-                <div key={index} className="Information">
-                  <img src={icone} />
-                  <p>{item.Information[index]}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={`Container-BarreNavigation-5 ${isSticky ? 'sticky-nav' : ''}`}>
-            {item.Navigation.map((item, index) => (
-              <div key={index} className="Icone-Titre-Navigation">
-                <NavLink
-                  to={item.navlink}
-                  key={index}
-                  className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"}
-                >
-                  <span>{item.icone}</span>
-                  <h1>{item.texte}</h1>
-                </NavLink>
-              </div>
+          {/* Burger Menu Button */}
+          <button
+            className={`burger-menu${menuOpen ? " open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {item.MenuBurger.map((item, idx) => (
+              <img key={idx} src={item} />
             ))}
-          </div>
+          </button>
 
-
-
-        </>
+          {/* Navigation */}
+          <nav
+            className={`Container-BarreNavigation-2${menuOpen ? " show" : ""}`}
+          >
+            {item.Navigation.map((navItem, index) => (
+              <button
+                key={index}
+                className={`nav-link ${activeSection === navItem.sectionId ? "nav-link-active" : ""
+                  }`}
+                onClick={() => {
+                  scrollToSection(navItem.sectionId);
+                  setActiveSection(navItem.sectionId);
+                }}
+                style={
+                  activeSection === navItem.sectionId
+                    ? { backgroundColor: "rgba(33, 150, 243, 1)", color: "" }
+                    : {}
+                }
+              >
+                <span>{navItem.icone}</span>
+                <p>{navItem.texte}</p>
+              </button>
+            ))}
+          </nav>
+        </div>
       ))}
     </section>
   );
 };
 
-export default BarreNavigation
+export default BarreNavigation;

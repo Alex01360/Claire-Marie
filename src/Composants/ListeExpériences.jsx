@@ -1,7 +1,9 @@
 
 const ListeExpériences = ({ props }) => (
-    <section>
-        <div className="Container-ListeExpériences-1 ">
+        <div className="Container-Expériences-1 ">
+            <h1>Mes Expériences</h1>
+
+
             {props.Container.map((item, index) => (
                 <div key={index} className="Formation-Item">
                     <h1>{item.titre}</h1>
@@ -24,7 +26,6 @@ const ListeExpériences = ({ props }) => (
                 </div>
             ))}
         </div>
-    </section>
 );
 
 export default ListeExpériences;

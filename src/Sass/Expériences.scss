@@ -1,4 +1,4 @@
-.Container-ListeExpériences-1 {
+.Container-Expériences-1 {
     position: relative;
     background-color: var(--card-background);
     display: flex;
@@ -9,10 +9,12 @@
     border-radius: var(--border-radius);
     padding: 20px;
     gap: 20px;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
 }
 
-.Formation-Item{
-            background-color: rgba(0, 0, 255, 0.397);
+.Formation-Item {
+    background-color: rgba(0, 0, 255, 0.397);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,43 +22,40 @@
     border-radius: var(--border-radius);
     padding: 20px;
     width: 65%;
-    border-left:solid 8px var(--primary-color);
 
-    p{
+    p {
         width: 100%;
     }
 
-ul{
-width: 90%;
-line-height: 30px;
-}
+    ul {
+        width: 90%;
+        line-height: 30px;
+    }
 
-li{
-    text-align: left;
-    font-size: 18px;
+    li {
+        text-align: left;
+        font-size: 18px;
+    }
 }
-}
-
-
 
 @media screen and (max-width: 925px) {
-    .Container-ListeExpériences-1 {
+    .Container-Expériences-1 {
         width: 90%;
     }
 
     .Formation-Item {
         width: 95%;
 
-        h1{
+        h1 {
             font-size: var(--font-size-titre);
         }
 
-        p{
+        p {
             font-size: var(--font-size-texte);
             text-align: left;
         }
 
-        li{
+        li {
             font-size: var(--font-size-texte);
         }
     }

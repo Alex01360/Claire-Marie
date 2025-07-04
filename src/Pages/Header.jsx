@@ -1,79 +1,72 @@
-import ClaireMarie from "../assets/images/Claire-Marie.jpeg";
-import iconelocalisation from "../assets/images/icone-localisation.svg";
-import iconemail from "../assets/images/icone-mail.svg";
-import iconetéléphone from "../assets/images/icone-téléphone.svg";
-import BarreNavigation from "../Composants/BarreNavigation";
 
+import menuBurger from "../assets/images/menu-burger.svg";
+import BarreNavigation from "../Composants/BarreNavigation";
+import ScrollProgress from "../Composants/ScrollProgress";
 
 const Header = () => {
   return (
     <>
+      <ScrollProgress />
       <BarreNavigation
-        props=
+      props=
+      {
         {
+        Container:
+          [
           {
-            Container:
-              [
-                {
-                  Présentation:
-                    [
-                      {
-                        image: ClaireMarie,
-                      },
-                    ],
+            MenuBurger:
+            [
+              menuBurger,
+              menuBurger,
+              menuBurger
+            ],
 
-                  titre: "BASSON Claire Marie",
-                  sousTitre: "Apprentie ASV (Auxiliaire Vétérinaire)",
-                  texte: "Je suis une personne autonome et curieuse. J'ai toujours été passionnée par les animaux et j'aime apprendre de nouvelles choses.",
+            Navigation:
+            [
+              {
+              icone: "🏠",
+              texte: "Accueil",
+              sectionId: "presentation"
+              },
 
-                  Icone:
-                    [
-                      iconetéléphone,
-                      iconemail,
-                      iconelocalisation,
-                    ],
+              {
+              icone: "💼",
+              texte: "Compétences",
+              sectionId: "competences"
+              },
 
-                  Information:
-                    [
-                      "06 31 39 93 29",
-                      "basson.clairemarie2016@gmail.com",
-                      "Jarcieu 38270 France",
-                    ],
+              {
+              icone: "🎓",
+              texte: "Formation",
+              sectionId: "formation"
+              },
 
-                  Navigation:
-                    [
-                      {
-                        icone: "🏠",
-                        texte: "Accueil",
-                        navlink: "/"
-                      },
+              {
+              icone: "🏥",
+              texte: "Expériences",
+              sectionId: "experiences"
+              },
 
-                      {
-                        icone: "💼",
-                        texte: "Compétences",
-                        navlink: "/Compétences"
-                      },
+              {
+              icone: "👤",
+              texte: "Profil",
+              sectionId: "profil"
+              },
 
-                      {
-                        icone: "🎓",
-                        texte: "Formation",
-                        navlink: "/Formation"
-                      },
-
-                      {
-                        icone: "🏥",
-                        texte: "Expériences",
-                        navlink: "/Expériences",
-                      },
-                    ]
-                }
-              ]
+              {
+              icone: "✉️",
+              texte: "contact",
+              sectionId: "contact"
+              },
+            ]
           }
+          ]
         }
+      }
 
       />
     </>
-  )
+    )
 }
 
 export default Header

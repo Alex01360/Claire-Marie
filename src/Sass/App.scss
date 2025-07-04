@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  margin: 0;
+  margin:0;
   padding: 0;
 }
 
@@ -11,35 +11,51 @@
   --secondary-color: rgb(100, 116, 139);
   --accent-color: rgb(245, 158, 11);
 --background-gradient: rgb(73, 73, 194);
-  --card-background: rgba(117, 110, 110, 0.95);
+  --card-background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%);
   --text-primary: rgb(30, 41, 59);
   --text-secondary: rgb(100, 116, 139);
   --text-light: rgb(255, 255, 255);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --border-radius: 20px;
-  --border-radius-lg: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --font-size-titre:clamp(19px, 3.5vw, 30px);
-  --font-size-sous-titre:clamp(17px, 3.5vw, 27px);
-  --font-size-texte:clamp(14px, 3.5vw, 24px);
+    --font-size-titre:clamp(17px, 3.5vw, 30px);
+  --font-size-sous-titre:clamp(15px, 3.5vw, 27px);
+  --font-size-texte:clamp(12px, 3.5vw, 24px);
+  --border:1px solid rgba(255, 255, 255, 0.2);
+--box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--background-gradient);
-font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    text-align: justify;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    width: 100%;
-    margin:auto;
-  }
   
+  background: linear-gradient(135deg, 
+    var(--background-gradient) 0%, 
+    rgb(56, 82, 158) 25%, 
+    rgb(88, 28, 135) 50%, 
+    rgb(168, 85, 247) 75%, 
+    rgb(251, 146, 60) 100%);
+  background-attachment:fixed;
+    font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  color: white;
+  width: 100%;
+  top:13vh;
+    min-height: 460vh;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  body {
+    top: 1vh;
+        min-height: 1000vh;
+
+  }
+  }
+
 /* Pas d'espace pour la barre de navigation sur mobile */
 
   h1 {
@@ -72,15 +88,55 @@ font-family: Arial, Helvetica, sans-serif;
     color: white;
   }
   
-  section{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  width: 100%;
+  // Styles pour les sections du portfolio
+  .portfolio-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    scroll-margin-top: 100px;
+    
+    /*
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(1px);
+      z-index: -1;
+    }
+*/
+    // Animation d'apparition
+    > div {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
   }
-  
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Animation pour les éléments au scroll
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+    
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   button{
   border: solid 2px white;
   }

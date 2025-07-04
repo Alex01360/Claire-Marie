@@ -1,0 +1,68 @@
+.Container-Contact-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    width: 70%;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    gap: 20px;
+}
+
+.Container-Contact-2{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+gap: 20px;
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border);
+padding: 10px;
+border-radius: var(--border-radius);
+
+&:hover{
+    cursor: pointer;
+}
+
+
+span{
+font-size: 3rem;
+}
+
+
+&:nth-child(1){
+background-color: yellow;
+}
+}
+}
+
+@media screen and (max-width: 710px) {
+.Container-Contact-1{
+width: 85%;
+}
+
+.Contact{
+width: 100%;
+
+p{
+    text-align: left;
+}
+}
+
+.Container-Contact-2{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+gap: 20px;
+font-size: var(--font-size-texte);
+}
+}
